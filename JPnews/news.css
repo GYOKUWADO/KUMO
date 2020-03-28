@@ -1,0 +1,76 @@
+body{
+  background-color:#ffffff;
+}
+
+h3 {
+  padding: .20em 50 .5em .75em;
+  border-left: 10px solid #ccc;
+  border-bottom: 3px solid #ccc;
+  background-color:#ffffff;
+  margin:0 auto;
+  display:block;
+  width:800px
+}
+
+h1{
+  font-family:serif;
+  text-align: center; 
+}
+
+.No{
+  color:#FF0000;
+}
+
+.on_kumo_news{
+  font-family:Impact;
+  font-size:large;
+  margin:0 auto;
+  display:block;
+  width:500px;
+}
+
+.on_kumo_news_title{
+  font-family:serif;
+  font-size:x-large;
+  margin:0 auto;
+  display:block;
+  width:800px;
+}
+
+.on_kumo_news_description{
+  font-family:serif;
+  font-size:large;
+  margin:0 auto;
+  display:block;
+  width:800px;
+}
+
+#topnews{
+  width:700px;
+  height:350px;
+  display:block;
+  margin:auto;
+}
+
+#news{
+  width:700px;
+  height:150px;
+  display:block;
+  margin:auto
+}
+
+#news_date{
+  font-family:Sylfaen;
+  font-size:xx-large;}
+
+#news_kumo_1{
+  font-size:35pt;
+}
+
+#news_kumo_2{
+  font-size:30pt;
+}
+
+#news_kumo_3{
+  font-size:25pt;
+}

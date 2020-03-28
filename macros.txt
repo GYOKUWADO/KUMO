@@ -1,0 +1,6 @@
+SU=powershell start-process cmd -ArgumentList '/k ""doskey /macrofile=%cd%\macros.txt""'-verb runas
+RG=regedit.exe
+PS=powershell.exe
+PSsu=@powershell -NoProfile -ExecutionPolicy unrestricted -Command "Start-Process powershell.exe -Verb runas"
+ALLSIGN=runas /user:Administrator "PowerShell.exe Set-ExecutionPolicy AllSigned"
+show=doskey /macros

@@ -1,0 +1,23 @@
+       0h- 9FFFFh	640KB	コンベンショナルメモリー
+
+   A0000h- FFFFFh		UMA
+
+
+   A0000h- BFFFFh	128KB	VRAM			標準のVGAまでは640KBから1MB
+
+   C0000h- C7FFFh	 32KB	ビデオBIOS
+
+
+  100000h-10FFEFh	 64KB	HMA			80286以降のCPUでリアルモード
+
+				EMB
+
+  10FFF0h-FFFFFFh	 16MB　				80286
+
+ 1000000h-FFFFFFFFh       4GB				80386以降
+
+
+
+1MB(FFFFFh)までリアルモードで参照可 8086
+1MB(100000h)以降 80286以上のプロセッサでプロテクトモードをサポートしたOSでのみ利用可
+
