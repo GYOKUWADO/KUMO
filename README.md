@@ -38,11 +38,6 @@ enable.bat
 
 
 
-SU.bat
-
-管理者モードでcmdをスタートさせます。
-
-
 google.bat
 コマンドラインからgoogle検索を行います。
 
