@@ -30,13 +30,6 @@ httpの8000番ポートでメッセージを待ち受けます。
 Node_MSG
 node.jsで49152番ポートでメッセージを待ち受けます。
 
-Virus_Detect.bat
-Virus_Detect_sha256.batをコマンドラインから実行するとTrend_micro_Virus_Detect_sha256.txtに記述された、
-TrendoMicroのウィルスのsha256ハッシュとダウンロードしたjavascriptファイルを比較して一致すれば知らせます。
-./get_jsフォルダの一階層下の[ドメイン]フォルダに1から順番にjsをダウンロードしてsha256hashを計算します。
-なお、htmlファイルはV_detect.txtとゆうファイル名で保存されます。
-適宜、TrendoMicroから発行されるjavascriptウィルスのsha256hashをTrend_micro_Virus_Detect_sha256.txtに追記していってください。
-
 Jpnews.bat
 カレントディレクトリJpnews で Jpnews.bat を引数 /g で実行すると
 更新された関西の htmlファイルを kansai_news.html にリダイレクトします。
