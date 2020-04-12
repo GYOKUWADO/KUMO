@@ -89,7 +89,7 @@ def encryption_AES():
   text = text.encode('utf-8')
   #print(text)
 
-  encryption_suite = AES.new(key, AES.MODE_CBC, b'OnTheKumoProject')
+  encryption_suite = AES.new(key, AES.MODE_CBC, b'this_is_change_space')
   cipher_text = encryption_suite.encrypt(text)
   print("cipher_text=" + str(cipher_text))
   sys.exit()
