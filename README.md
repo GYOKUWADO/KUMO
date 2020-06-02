@@ -44,3 +44,6 @@ python RSA.pyで実行です。余りにも小さな値は上手く動かない�
 
 html.bat
 html作成の雛形を出力します。
+
+Yauction.bat
+ヤフーオークションの価格からの検索及びにMyauctionへのアクセス。
