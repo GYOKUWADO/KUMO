@@ -4,3 +4,5 @@ PS=powershell.exe
 PSsu=@powershell -NoProfile -ExecutionPolicy unrestricted -Command "Start-Process powershell.exe -Verb runas"
 ALLSIGN=runas /user:Administrator "PowerShell.exe Set-ExecutionPolicy AllSigned"
 show=doskey /macros
+Vscan=start https://docs.microsoft.com/ja-jp/windows/security/threat-protection/intelligence/safety-scanner-download & explorer.exe %USERPROFILE%\Downloads
+vscanLog=notepad.exe %SYSTEMROOT%\debug\msert.log
