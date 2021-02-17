@@ -2,3 +2,4 @@
 doskey /macrofile=macros.txt
 set PATH=%PATH%;%CD%
 set PATH=%PATH%;%CD%\EXE
+set PATH=%PATH%;%CD%\SDelete
