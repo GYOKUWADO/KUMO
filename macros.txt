@@ -7,3 +7,4 @@ show=doskey /macros
 Vscan=start https://docs.microsoft.com/ja-jp/windows/security/threat-protection/intelligence/safety-scanner-download & explorer.exe %USERPROFILE%\Downloads
 vscanLog=notepad.exe %SYSTEMROOT%\debug\msert.log
 SD3=sdelete.exe -p 3 $1
+RootKitScan=tdsskiller\TDSSKiller.exe
