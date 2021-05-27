@@ -52,8 +52,7 @@ rem ユーザーが増えた場合以下の一行に変更
 rem notepad.exe %UsbDrive%\RELEASE2.3\twitter_user.txt
 
 echo ##################################################
-set /p No="フロムandイメージ検索する番号を入力してください。"
-for /f "tokens=1,2,3 delims=," %%i in (twitter_user.txt) do IF %No%==%%i set TWITTER_USER=%%j
+set /p No="検索するIDを入力してください。"
 start https://twitter.com/search?q=from:%TWITTER_USER%+filter:images
 GOTO :EOF
 
