@@ -49,5 +49,8 @@ print(reply)
 for tweet in tweets:
   reply_text = "@"+str(tweet.user.screen_name) +" "+ reply + " #AI #いいね"
   # テキスト(メッセージ)のみ
-  api.update_status(status = reply_text, in_reply_to_status_id = tweet.id)
-  api.create_favorite(tweet.id)
+  try:
+     api.update_status(status = reply_text, in_reply_to_status_id = tweet.id)
+     api.create_favorite(tweet.id)
+  except:
+     pass
