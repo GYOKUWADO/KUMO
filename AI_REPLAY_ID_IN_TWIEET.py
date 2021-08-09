@@ -17,6 +17,8 @@ api = tweepy.API(auth)
 #-------------------------------------------------------------------------
 # ツイートを投稿
 
+MESSAGE_REPLY_DEFAULT = ' '
+
 x = input('AIが返信するIDを入力して下さい : ')
 Account = x
 
@@ -39,7 +41,7 @@ def send_message(message):
     reply_message = client.talk(message)
     print(reply_message['message'])
     if reply_message['message'] == 'empty reply':
-       return "..."
+       return MESSAGE_REPLY_DEFAULT
     return reply_message['results'][0]['reply']
 
 message = line
@@ -47,9 +49,18 @@ reply   = send_message(message)
 print(reply)
 
 for tweet in tweets:
+ if reply != ' ':
   reply_text = "@"+str(tweet.user.screen_name) +" "+ reply + " #AI #いいね"
   # テキスト(メッセージ)のみ
-  try:
+  try:      
+     api.update_status(status = reply_text, in_reply_to_status_id = tweet.id)
+     api.create_favorite(tweet.id)
+  except:
+     pass
+ else:
+  reply_text = "@"+str(tweet.user.screen_name) +" "+ "..." + " #AI #いいね"
+  # テキスト(メッセージ)のみ
+  try:      
      api.update_status(status = reply_text, in_reply_to_status_id = tweet.id)
      api.create_favorite(tweet.id)
   except:
