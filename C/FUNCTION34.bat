@@ -20,7 +20,6 @@ set JPL_Q=
 set JPL_R=
 set JPL_S=
 set JPL_T=
-set JPL_U=
 if %LPJ0:~0,4%==#### set JPL_A=#
 if %LPJ1:~0,4%==#### set JPL_A=#
 if %LPJ2:~0,4%==#### set JPL_A=#

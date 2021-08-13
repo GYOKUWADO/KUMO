@@ -21,5 +21,4 @@ for /f "skip=4 tokens=3,8" %%i in (JIS.txt) do if %LPJ1:~80,4%==%%i set JPL_Q=%%
 for /f "skip=4 tokens=3,8" %%i in (JIS.txt) do if %LPJ1:~85,4%==%%i set JPL_R=%%j
 for /f "skip=4 tokens=3,8" %%i in (JIS.txt) do if %LPJ1:~90,4%==%%i set JPL_S=%%j
 for /f "skip=4 tokens=3,8" %%i in (JIS.txt) do if %LPJ1:~95,4%==%%i set JPL_T=%%j
-for /f "skip=4 tokens=3,8" %%i in (JIS.txt) do if %LPJ1:~100,4%==%%i set JPL_U=%%
-echo %JPL_A%%JPL_B%%JPL_C%%JPL_D%%JPL_E%%JPL_F%%JPL_G%%JPL_H%%JPL_I%%JPL_J%%JPL_K%%JPL_L%%JPL_M%%JPL_N%%JPL_O%%JPL_P%%JPL_Q%%JPL_R%%JPL_S%%JPL_T%%JPL_U%
+echo %JPL_A%%JPL_B%%JPL_C%%JPL_D%%JPL_E%%JPL_F%%JPL_G%%JPL_H%%JPL_I%%JPL_J%%JPL_K%%JPL_L%%JPL_M%%JPL_N%%JPL_O%%JPL_P%%JPL_Q%%JPL_R%%JPL_S%%JPL_T%

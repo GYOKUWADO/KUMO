@@ -1,0 +1,11 @@
+set S=
+set BN=
+set CODE=
+set D=
+set JIS=
+set No=
+set KEY=
+set JPL_A=
+FOR /L %%i IN (0,1,2) DO set JIS%%i=
+FOR /L %%i IN (0,1,19) DO set JISCODE%%i=
+FOR /L %%i IN (0,1,15) DO set LPJ%%i=

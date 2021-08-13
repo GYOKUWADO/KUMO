@@ -6,7 +6,7 @@ IF "%1"=="/e" GOTO START1
 IF "%1"=="/d" GOTO START2
 IF "%1"=="/s" GOTO START3
 IF "%1"=="/j" GOTO START5
-IF "%1"=="/c" python chenge_code.py
+IF "%1"=="/c" GOTO START7
 IF "%1"=="/" GOTO START6
 GOTO :EOF
 
@@ -14,7 +14,7 @@ GOTO :EOF
 echo /e C_codeÇÃà√çÜâª
 echo /d C_codeÇÃïúçÜâª
 echo /s D_codeÇÃïúçÜ
-echo /j ï∂éöóÒÇÃJIS_CODEâª
+echo /j ï∂éöóÒÇÃCODEâª
 echo /c çáåæótÇÃïœçX
 GOTO :EOF
 
@@ -27,10 +27,20 @@ GOTO :EOF
 gpg -d C_code.txt.gpg > C_code.txt
 GOTO :EOF
 
+:START7
+set /p CODE="ïœçXÇ∑ÇÈçáåæótÇÃäøéöàÍï∂éöÇì¸óÕÇπÇÊ:"
+for /f "skip=4 tokens=4,8" %%i in (JIS.txt) do if %CODE%==%%j set S=%%i
+set S=%S:~2,2%%S:~0,2%
+echo %S% > F_code.txt
+CALL R
+GOTO :EOF
+
 :START3
 set /p CODE="çáåæótÇäøéöàÍï∂éöÇ≈ì¸óÕÇπÇÊ:"
-for /f "skip=4 tokens=3,8" %%i in (JIS.txt) do if %CODE%==%%j set JIS=%%i
-IF "%JIS%"=="3828" GOTO START4
+FOR /F %%i IN (F_code.txt) DO set S=%%i
+set S=%S:~2,2%%S:~0,2%
+for /f "skip=4 tokens=4,8" %%i in (JIS.txt) do if %CODE%==%%j set J=%%i
+IF %J%==%S% GOTO START4
 GOTO :EOF
 
 :START4
@@ -55,6 +65,7 @@ FOR /F "tokens=1,2,3,4" %%i IN (D_code.txt) DO IF "%%i"=="L" set BN=%%k && set x
 FOR /F "tokens=1,2,3,4" %%i IN (D_code.txt) DO IF "%%i"=="N" set BN=%%k && set x=%%l && CALL :FUNCTION
 FOR /F "tokens=1,2,3,4" %%i IN (D_code.txt) DO IF "%%i"=="M" set BN=%%k && set x=%%l && CALL :FUNCTION
 FOR /F "tokens=1,2,3,4" %%i IN (D_code.txt) DO IF "%%i"=="K" set BN=%%k && set x=%%l && CALL :FUNCTION
+CALL R
 echo Please teach me CODE.
 GOTO :EOF
 
@@ -153,7 +164,7 @@ set /p One_Word="ìÒè\ï∂éöà»ì‡Ç≈ï∂éöÇì¸óÕÇµÇƒÇ≠ÇæÇ≥Ç¢ÅBìÒè\àÍï∂éöà»ç~ÇÕÉJÉbÉgÇ≥Ç
 IF "%One_Word%"=="" GOTO :STRAT5
 
 :X
-FOR /L %%i IN (0,1,20) DO set JISCODE%%i=""
+FOR /L %%i IN (0,1,19) DO set JISCODE%%i=""
 
 set JIS0=%One_Word:~0,1%
 set JIS1=%One_Word:~1,1%
@@ -175,7 +186,6 @@ set JIS16=%One_Word:~16,1%
 set JIS17=%One_Word:~17,1%
 set JIS18=%One_Word:~18,1%
 set JIS19=%One_Word:~19,1%
-set JIS20=%One_Word:~20,1%
 
 set One_Word=
 
@@ -239,8 +249,6 @@ IF "%JIS19%" == "" GOTO :END
 for /f "skip=4 tokens=3,8" %%i in (JIS.txt) do if %JIS19%==%%j set JISCODE19=%%i
 for /f "skip=4 tokens=3,6" %%i in (JIS.txt) do if %JIS19%==%%j set JISCODE19=%%i
 IF "%JIS20%" == "" GOTO :END
-rem for /f "skip=4 tokens=3,8" %%i in (JIS.txt) do if %JIS20%==%%j set JISCODE20=%%i
-rem for /f "skip=4 tokens=3,6" %%i in (JIS.txt) do if %JIS20%==%%j set JISCODE20=%%i
 
 :END
 IF %JISCODE0%=="" set JISCODE0=####
@@ -263,26 +271,30 @@ IF %JISCODE16%=="" set JISCODE16=####
 IF %JISCODE17%=="" set JISCODE17=####
 IF %JISCODE18%=="" set JISCODE18=####
 IF %JISCODE19%=="" set JISCODE19=####
-IF %JISCODE20%=="" set JISCODE20=####
 
-echo %JISCODE0%:%JISCODE1%:%JISCODE2%:%JISCODE3%:%JISCODE4%:%JISCODE5%:%JISCODE6%:%JISCODE7%:%JISCODE8%:%JISCODE9%:%JISCODE10%:%JISCODE11%:%JISCODE12%:%JISCODE13%:%JISCODE14%:%JISCODE15%:%JISCODE16%:%JISCODE17%:%JISCODE18%:%JISCODE19%:%JISCODE20%
+REM echo %JISCODE0%:%JISCODE1%:%JISCODE2%:%JISCODE3%:%JISCODE4%:%JISCODE5%:%JISCODE6%:%JISCODE7%:%JISCODE8%:%JISCODE9%:%JISCODE10%:%JISCODE11%:%JISCODE12%:%JISCODE13%:%JISCODE14%:%JISCODE15%:%JISCODE16%:%JISCODE17%:%JISCODE18%:%JISCODE19%
+echo %JISCODE0:~2,2%%JISCODE0:~0,2%:%JISCODE1:~2,2%%JISCODE1:~0,2%:%JISCODE2:~2,2%%JISCODE2:~0,2%:%JISCODE3:~2,2%%JISCODE3:~0,2%:%JISCODE4:~2,2%%JISCODE4:~0,2%:%JISCODE5:~2,2%%JISCODE5:~0,2%:%JISCODE6:~2,2%%JISCODE6:~0,2%:%JISCODE7:~2,2%%JISCODE7:~0,2%:%JISCODE8:~2,2%%JISCODE8:~0,2%:%JISCODE9:~2,2%%JISCODE9:~0,2%:%JISCODE10:~2,2%%JISCODE10:~0,2%:%JISCODE11:~2,2%%JISCODE11:~0,2%:%JISCODE12:~2,2%%JISCODE12:~0,2%:%JISCODE13:~2,2%%JISCODE13:~0,2%:%JISCODE14:~2,2%%JISCODE14:~0,2%:%JISCODE15:~2,2%%JISCODE15:~0,2%:%JISCODE16:~2,2%%JISCODE16:~0,2%:%JISCODE17:~2,2%%JISCODE17:~0,2%:%JISCODE18:~2,2%%JISCODE18:~0,2%:%JISCODE19:~2,2%%JISCODE19:~0,2%
+
+CALL R
+
 GOTO :EOF
 
 :FUNCTION17
-FOR /F "tokens=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22 delims=: " %%a IN (E_code.txt) DO IF %%a==00 set LPJ0=%%b:%%c:%%d:%%e:%%f:%%g:%%h:%%i:%%j:%%k:%%l:%%m:%%n:%%o:%%p:%%q:%%r:%%s:%%t:%%u:%%v
-FOR /F "tokens=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22 delims=: " %%a IN (E_code.txt) DO IF %%a==01 set LPJ1=%%b:%%c:%%d:%%e:%%f:%%g:%%h:%%i:%%j:%%k:%%l:%%m:%%n:%%o:%%p:%%q:%%r:%%s:%%t:%%u:%%v
-FOR /F "tokens=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22 delims=: " %%a IN (E_code.txt) DO IF %%a==02 set LPJ2=%%b:%%c:%%d:%%e:%%f:%%g:%%h:%%i:%%j:%%k:%%l:%%m:%%n:%%o:%%p:%%q:%%r:%%s:%%t:%%u:%%v
-FOR /F "tokens=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22 delims=: " %%a IN (E_code.txt) DO IF %%a==03 set LPJ3=%%b:%%c:%%d:%%e:%%f:%%g:%%h:%%i:%%j:%%k:%%l:%%m:%%n:%%o:%%p:%%q:%%r:%%s:%%t:%%u:%%v
-FOR /F "tokens=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22 delims=: " %%a IN (E_code.txt) DO IF %%a==04 set LPJ4=%%b:%%c:%%d:%%e:%%f:%%g:%%h:%%i:%%j:%%k:%%l:%%m:%%n:%%o:%%p:%%q:%%r:%%s:%%t:%%u:%%v
-FOR /F "tokens=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22 delims=: " %%a IN (E_code.txt) DO IF %%a==05 set LPJ5=%%b:%%c:%%d:%%e:%%f:%%g:%%h:%%i:%%j:%%k:%%l:%%m:%%n:%%o:%%p:%%q:%%r:%%s:%%t:%%u:%%v
-FOR /F "tokens=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22 delims=: " %%a IN (E_code.txt) DO IF %%a==06 set LPJ6=%%b:%%c:%%d:%%e:%%f:%%g:%%h:%%i:%%j:%%k:%%l:%%m:%%n:%%o:%%p:%%q:%%r:%%s:%%t:%%u:%%v
-FOR /F "tokens=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22 delims=: " %%a IN (E_code.txt) DO IF %%a==07 set LPJ7=%%b:%%c:%%d:%%e:%%f:%%g:%%h:%%i:%%j:%%k:%%l:%%m:%%n:%%o:%%p:%%q:%%r:%%s:%%t:%%u:%%v
-FOR /F "tokens=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22 delims=: " %%a IN (E_code.txt) DO IF %%a==08 set LPJ8=%%b:%%c:%%d:%%e:%%f:%%g:%%h:%%i:%%j:%%k:%%l:%%m:%%n:%%o:%%p:%%q:%%r:%%s:%%t:%%u:%%v
-FOR /F "tokens=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22 delims=: " %%a IN (E_code.txt) DO IF %%a==09 set LPJ9=%%b:%%c:%%d:%%e:%%f:%%g:%%h:%%i:%%j:%%k:%%l:%%m:%%n:%%o:%%p:%%q:%%r:%%s:%%t:%%u:%%v
-FOR /F "tokens=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22 delims=: " %%a IN (E_code.txt) DO IF %%a==10 set LPJ10=%%b:%%c:%%d:%%e:%%f:%%g:%%h:%%i:%%j:%%k:%%l:%%m:%%n:%%o:%%p:%%q:%%r:%%s:%%t:%%u:%%v
-FOR /F "tokens=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22 delims=: " %%a IN (E_code.txt) DO IF %%a==11 set LPJ11=%%b:%%c:%%d:%%e:%%f:%%g:%%h:%%i:%%j:%%k:%%l:%%m:%%n:%%o:%%p:%%q:%%r:%%s:%%t:%%u:%%v
-FOR /F "tokens=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22 delims=: " %%a IN (E_code.txt) DO IF %%a==12 set LPJ12=%%b:%%c:%%d:%%e:%%f:%%g:%%h:%%i:%%j:%%k:%%l:%%m:%%n:%%o:%%p:%%q:%%r:%%s:%%t:%%u:%%v
-FOR /F "tokens=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22 delims=: " %%a IN (E_code.txt) DO IF %%a==13 set LPJ13=%%b:%%c:%%d:%%e:%%f:%%g:%%h:%%i:%%j:%%k:%%l:%%m:%%n:%%o:%%p:%%q:%%r:%%s:%%t:%%u:%%v
-FOR /F "tokens=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22 delims=: " %%a IN (E_code.txt) DO IF %%a==14 set LPJ14=%%b:%%c:%%d:%%e:%%f:%%g:%%h:%%i:%%j:%%k:%%l:%%m:%%n:%%o:%%p:%%q:%%r:%%s:%%t:%%u:%%v
-FOR /F "tokens=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22 delims=: " %%a IN (E_code.txt) DO IF %%a==15 set LPJ15=%%b:%%c:%%d:%%e:%%f:%%g:%%h:%%i:%%j:%%k:%%l:%%m:%%n:%%o:%%p:%%q:%%r:%%s:%%t:%%u:%%v
+FOR /F "tokens=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21 delims=: " %%a IN (E_code.txt) DO IF %%a==00 set LPJ0=%%b:%%c:%%d:%%e:%%f:%%g:%%h:%%i:%%j:%%k:%%l:%%m:%%n:%%o:%%p:%%q:%%r:%%s:%%t:%%u
+FOR /F "tokens=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21 delims=: " %%a IN (E_code.txt) DO IF %%a==01 set LPJ1=%%b:%%c:%%d:%%e:%%f:%%g:%%h:%%i:%%j:%%k:%%l:%%m:%%n:%%o:%%p:%%q:%%r:%%s:%%t:%%u
+FOR /F "tokens=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21 delims=: " %%a IN (E_code.txt) DO IF %%a==02 set LPJ2=%%b:%%c:%%d:%%e:%%f:%%g:%%h:%%i:%%j:%%k:%%l:%%m:%%n:%%o:%%p:%%q:%%r:%%s:%%t:%%u
+FOR /F "tokens=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21 delims=: " %%a IN (E_code.txt) DO IF %%a==03 set LPJ3=%%b:%%c:%%d:%%e:%%f:%%g:%%h:%%i:%%j:%%k:%%l:%%m:%%n:%%o:%%p:%%q:%%r:%%s:%%t:%%u
+FOR /F "tokens=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21 delims=: " %%a IN (E_code.txt) DO IF %%a==04 set LPJ4=%%b:%%c:%%d:%%e:%%f:%%g:%%h:%%i:%%j:%%k:%%l:%%m:%%n:%%o:%%p:%%q:%%r:%%s:%%t:%%u
+FOR /F "tokens=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21 delims=: " %%a IN (E_code.txt) DO IF %%a==05 set LPJ5=%%b:%%c:%%d:%%e:%%f:%%g:%%h:%%i:%%j:%%k:%%l:%%m:%%n:%%o:%%p:%%q:%%r:%%s:%%t:%%u
+FOR /F "tokens=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21 delims=: " %%a IN (E_code.txt) DO IF %%a==06 set LPJ6=%%b:%%c:%%d:%%e:%%f:%%g:%%h:%%i:%%j:%%k:%%l:%%m:%%n:%%o:%%p:%%q:%%r:%%s:%%t:%%u
+FOR /F "tokens=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21 delims=: " %%a IN (E_code.txt) DO IF %%a==07 set LPJ7=%%b:%%c:%%d:%%e:%%f:%%g:%%h:%%i:%%j:%%k:%%l:%%m:%%n:%%o:%%p:%%q:%%r:%%s:%%t:%%u
+FOR /F "tokens=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21 delims=: " %%a IN (E_code.txt) DO IF %%a==08 set LPJ8=%%b:%%c:%%d:%%e:%%f:%%g:%%h:%%i:%%j:%%k:%%l:%%m:%%n:%%o:%%p:%%q:%%r:%%s:%%t:%%u
+FOR /F "tokens=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21 delims=: " %%a IN (E_code.txt) DO IF %%a==09 set LPJ9=%%b:%%c:%%d:%%e:%%f:%%g:%%h:%%i:%%j:%%k:%%l:%%m:%%n:%%o:%%p:%%q:%%r:%%s:%%t:%%u
+FOR /F "tokens=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21 delims=: " %%a IN (E_code.txt) DO IF %%a==10 set LPJ10=%%b:%%c:%%d:%%e:%%f:%%g:%%h:%%i:%%j:%%k:%%l:%%m:%%n:%%o:%%p:%%q:%%r:%%s:%%t:%%u
+FOR /F "tokens=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21 delims=: " %%a IN (E_code.txt) DO IF %%a==11 set LPJ11=%%b:%%c:%%d:%%e:%%f:%%g:%%h:%%i:%%j:%%k:%%l:%%m:%%n:%%o:%%p:%%q:%%r:%%s:%%t:%%u
+FOR /F "tokens=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21 delims=: " %%a IN (E_code.txt) DO IF %%a==12 set LPJ12=%%b:%%c:%%d:%%e:%%f:%%g:%%h:%%i:%%j:%%k:%%l:%%m:%%n:%%o:%%p:%%q:%%r:%%s:%%t:%%u
+FOR /F "tokens=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21 delims=: " %%a IN (E_code.txt) DO IF %%a==13 set LPJ13=%%b:%%c:%%d:%%e:%%f:%%g:%%h:%%i:%%j:%%k:%%l:%%m:%%n:%%o:%%p:%%q:%%r:%%s:%%t:%%u
+FOR /F "tokens=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21 delims=: " %%a IN (E_code.txt) DO IF %%a==14 set LPJ14=%%b:%%c:%%d:%%e:%%f:%%g:%%h:%%i:%%j:%%k:%%l:%%m:%%n:%%o:%%p:%%q:%%r:%%s:%%t:%%u
+FOR /F "tokens=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21 delims=: " %%a IN (E_code.txt) DO IF %%a==15 set LPJ15=%%b:%%c:%%d:%%e:%%f:%%g:%%h:%%i:%%j:%%k:%%l:%%m:%%n:%%o:%%p:%%q:%%r:%%s:%%t:%%u
+CALL SIJ
 GOTO :EOF
