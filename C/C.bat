@@ -6,7 +6,6 @@ IF "%1"=="/e" GOTO START1
 IF "%1"=="/d" GOTO START2
 IF "%1"=="/s" GOTO START3
 IF "%1"=="/j" GOTO START5
-IF "%1"=="/c" GOTO START7
 IF "%1"=="/" GOTO START6
 GOTO :EOF
 
@@ -32,14 +31,6 @@ for /f "skip=4 tokens=4,8" %%i in (JIS.txt) do if %CODE%==%%j set S=%%i
 set S=%S:~2,2%%S:~0,2%
 echo %S% > F_code.txt
 CALL R
-GOTO :EOF
-
-:START3
-set /p CODE="‡Œ¾—t‚ğŠ¿šˆê•¶š‚Å“ü—Í‚¹‚æ:"
-FOR /F %%i IN (F_code.txt) DO set S=%%i
-set S=%S:~2,2%%S:~0,2%
-for /f "skip=4 tokens=4,8" %%i in (JIS.txt) do if %CODE%==%%j set J=%%i
-IF %J%==%S% GOTO START4
 GOTO :EOF
 
 :START4
