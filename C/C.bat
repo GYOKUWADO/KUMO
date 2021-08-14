@@ -15,7 +15,6 @@ echo /e C_code‚ÌˆÃ†‰»
 echo /d C_code‚Ì•œ†‰»
 echo /s D_code‚Ì•œ†
 echo /j •¶Žš—ñ‚ÌCODE‰»
-echo /c ‡Œ¾—t‚Ì•ÏX
 GOTO :EOF
 
 :START1
