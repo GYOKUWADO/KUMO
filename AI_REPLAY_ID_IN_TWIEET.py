@@ -36,7 +36,7 @@ print(line)
 #api.update_status(x)
 
 def send_message(message):
-    apikey = "###your api key in this site https://a3rt.recruit-tech.co.jp/product/talkAPI/ ###"
+    apikey = "###your api key in this site https://a3rt.recruit.co.jp/product/talkAPI/ ###"
     client = pya3rt.TalkClient(apikey)
     reply_message = client.talk(message)
     print(reply_message['message'])
