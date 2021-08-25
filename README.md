@@ -11,6 +11,9 @@
 このプログラムは32bitアドレスを２進に変換し、
 どのメモリエリアに属するかを調べます。
 
+ac.bat
+ユーザーアカウントの作成、削除を行うスクリプト。
+
 WIPE.BAT
 二度と復元しないファイルをランダムな文字列で上書きします。
 通常、一度削除されたファイルは場合によって復元可能です。
@@ -39,6 +42,15 @@ pip install pycryptodome
 でモジュールをインストールして下さい。
 python AES.pyで実行です。
 
+AI.py
+AIと話すことができます。
+pip install pya3rtでモジュールをインストールして下さい。
+https://a3rt.recruit.co.jp/product/talkAPI/ でAPIkeyを発行してソースに組み込んで下さい。
+
+AI_REPLAY_ID_IN_TWIEET.py
+twitterの指定したアカウントの最新の投稿にAIが返信するコードです。
+api keyとtwitterのkeyを発行して組み込んで下さい。
+
 RSA.py
 python RSA.pyで実行です。余りにも小さな値は上手く動かないです。
 
@@ -47,3 +59,13 @@ html作成の雛形を出力します。
 
 Yauction.bat
 ヤフーオークションの価格からの検索及びにMyauctionへのアクセス。
+
+IMG_Capture.py
+写真を撮ります。
+
+C/C.bat
+暗号化、復号化のアルゴリズム。
+テスト用。
+
+cmd_Twitter/Twitter.bat
+twitterにかんするスクリプト。
