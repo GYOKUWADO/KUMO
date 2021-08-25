@@ -6,7 +6,7 @@ import jtalk
 MESSAGE_REPLY_DEFAULT = ' '
 
 def send_message(message):
-    apikey = "####your api key####"
+    apikey = "#### https://a3rt.recruit.co.jp/product/talkAPI/ on your api key ####"
     client = pya3rt.TalkClient(apikey)
     reply_message = client.talk(message)
     print(reply_message['message'])
