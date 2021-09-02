@@ -60,9 +60,6 @@ html作成の雛形を出力します。
 Yauction.bat
 ヤフーオークションの価格からの検索及びにMyauctionへのアクセス。
 
-IMG_Capture.py
-写真を撮ります。
-
 C/C.bat
 暗号化、復号化のアルゴリズム。
 テスト用。
