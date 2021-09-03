@@ -33,10 +33,6 @@ httpの8000番ポートでメッセージを待ち受けます。
 Node_MSG
 node.jsで49152番ポートでメッセージを待ち受けます。
 
-Jpnews.bat
-カレントディレクトリJpnews で Jpnews.bat を引数 /g で実行すると
-更新された関西の htmlファイルを kansai_news.html にリダイレクトします。
-
 AES.py
 pip install pycryptodome
 でモジュールをインストールして下さい。
@@ -59,10 +55,6 @@ html作成の雛形を出力します。
 
 Yauction.bat
 ヤフーオークションの価格からの検索及びにMyauctionへのアクセス。
-
-C/C.bat
-暗号化、復号化のアルゴリズム。
-テスト用。
 
 cmd_Twitter/Twitter.bat
 twitterにかんするスクリプト。
