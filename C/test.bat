@@ -1,1 +1,0 @@
-FOR /L %%a IN (0,1,19) DO set JISCODE%%a=1234
