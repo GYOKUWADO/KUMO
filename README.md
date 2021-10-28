@@ -42,6 +42,8 @@ AI.py
 AIと話すことができます。
 pip install pya3rtでモジュールをインストールして下さい。
 https://a3rt.recruit.co.jp/product/talkAPI/ でAPIkeyを発行してソースに組み込んで下さい。
+2021/10/28
+動かなくなってます。代わりにAI_TALK.batにAPIKEYを設定して実行してください。
 
 AI_REPLAY_ID_IN_TWIEET.py
 twitterの指定したアカウントの最新の投稿にAIが返信するコードです。
@@ -58,3 +60,5 @@ Yauction.bat
 
 cmd_Twitter/Twitter.bat
 twitterにかんするスクリプト。
+
+AI.pyの代替え
