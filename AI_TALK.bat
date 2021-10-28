@@ -11,7 +11,7 @@ IF "%1"=="/r" GOTO :START2
 
 set /p q="IN THE MSG:"
 
-for /f "usebackq" %%A in (`curl -s -X POST https://api.a3rt.recruit.co.jp/talk/v1/smalltalk -F "apikey=DZZE7NQfPP5wdpwFiw7k7Z5SRjD7tXY3" -F "query=%q%" ^| jq -c .results[].reply`) do set LINECOUNT=%%A
+for /f "usebackq" %%A in (`curl -s -X POST https://api.a3rt.recruit.co.jp/talk/v1/smalltalk -F "apikey=###your api key in this site https://a3rt.recruit.co.jp/product/talkAPI/ ###" -F "query=%q%" ^| jq -c .results[].reply`) do set LINECOUNT=%%A
 
 set LINECOUNT=%LINECOUNT:~1,-1%
 
