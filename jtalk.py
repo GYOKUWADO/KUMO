@@ -2,11 +2,14 @@
 import subprocess
 from datetime import datetime
 import winsound
+import sys
+
+q = sys.argv [1]
 
 def jtalk(t):
     # depend on your install folder
-    OPENJTALK_BINPATH = 'open_jtalk-1.11/bin'
-    OPENJTALK_DICPATH = 'open_jtalk-1.11/mecab-naist-jdic'
+    OPENJTALK_BINPATH = '../EXE/open_jtalk-1.11/bin'
+    OPENJTALK_DICPATH = '../EXE/open_jtalk-1.11/mecab-naist-jdic'
     # VOICEPATH -> can change mei voice
     OPENJTALK_VOICEPATH = 'mei/mei_normal.htsvoice'
     open_jtalk=[OPENJTALK_BINPATH + '/open_jtalk.exe']
@@ -16,9 +19,11 @@ def jtalk(t):
     outwav=['-ow','open_jtalk.wav']
     cmd=open_jtalk+mech+htsvoice+speed+outwav
     c = subprocess.Popen(cmd,stdin=subprocess.PIPE)
-
+    if t is None:
     # convert text encoding from utf-8 to shitf-jis
-    c.stdin.write(t.encode('shift-jis'))
+      c.stdin.write(t.encode('shift-jis'))
+    else:
+      c.stdin.write(q.encode('shift-jis'))
     c.stdin.close()
     c.wait()
 
