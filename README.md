@@ -66,3 +66,6 @@ AI.pyの代替え
 
 AI_TALK_TWITTER_REPLAY.py
 AI_REPLAY_ID_IN_TWIEET.pyの代替え。A3atのapikeyとtwitterのkeyを発行して組み込んで下さい。
+
+FAVO_TWEET.py
+python FAVO_TWEET.pyでHELPの呼び出し。
