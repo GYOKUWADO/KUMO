@@ -57,6 +57,6 @@ else:
 
   for result in search_results:
         screen_id = result.user._json["screen_name"]
-        if screen_id == my_id:
+        if screen_id != my_id:
          print(screen_id)
          api.create_friendship(screen_id)
