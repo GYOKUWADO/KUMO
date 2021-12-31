@@ -21,10 +21,11 @@ api = tweepy.API(auth)
 #-------------------------------------------------------------------------
 # ツイートを投稿
 
-my_id = "### your id in the this. not add head's @ mark (彼方のTwitterIDを記述して下さい。先頭の@マークは要りません。)###"
+my_id = "on_the_kumo"
 
 if (len(sys.argv) <= 1):
- print("FAVO_TWEET.py [/i] [count]\nIDを入力し、最新の[count]件にいいねを付ける。\nFAVO_TWEET.py [/f] [sherch keyword]\n[sherch keyword]で30人フォローする。")
+ print('FAVO_TWEET.py [/i] [count]		IDを入力し、最新の[count]件にいいねを付ける。\nFAVO_TWEET.py [/f] [sherch keyword]	[sherch keyword]で30人フォローする。'
+      '\nFAVO_TWEET.py [/h] [count]		タイムラインの[count]数、いいねを付ける。[count]は1から最大200まで')
 
 else:
  y = str(sys.argv[1])
@@ -60,3 +61,21 @@ else:
         if screen_id != my_id:
          print(screen_id)
          api.create_friendship(screen_id)
+
+ elif (y == "/h"):
+
+  tweets = api.home_timeline(count=sys.argv [2])
+
+  data = []
+
+  for tweet in tweets:
+   data.append(tweet.text)
+
+  line = ''.join(data)
+  print(line)
+
+  for tweet in tweets:
+   try:
+     api.create_favorite(tweet.id)
+   except:
+     pass
