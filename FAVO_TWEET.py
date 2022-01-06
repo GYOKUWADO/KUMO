@@ -1,4 +1,5 @@
 #tweetを投稿
+#pip install tweepy==3.1.0
  
 import tweepy
 import sys
