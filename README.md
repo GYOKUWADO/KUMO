@@ -69,3 +69,7 @@ AI_REPLAY_ID_IN_TWIEET.pyの代替え。A3atのapikeyとtwitterのkeyを発行�
 
 FAVO_TWEET.py
 python FAVO_TWEET.pyでHELPの呼び出し。
+
+Md5Sign.js
+usege is node Md5Sign.js [FileName] [Seed]
+Line 33 and 34 rewriting Your Infomation
