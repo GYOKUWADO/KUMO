@@ -3,7 +3,8 @@
 REM /t option twitter in AI MSG REPLAY
 REM /r option twitter in SET ID AI MSG REPLAY
 
-chcp 65001
+IF "%1"=="/r" chcp 65001
+IF "%1"=="/t" chcp 932
 
 :START
 
@@ -11,13 +12,11 @@ IF "%1"=="/r" GOTO :START2
 
 set /p q="IN THE MSG:"
 
-for /f "usebackq" %%A in (`curl -s -X POST https://api.a3rt.recruit.co.jp/talk/v1/smalltalk -F "apikey=###your api key in this site https://a3rt.recruit.co.jp/product/talkAPI/ ###" -F "query=%q%" ^| jq -c .results[].reply`) do set LINECOUNT=%%A
+for /f "usebackq" %%A in (`openai api completions.create -m text-davinci-003 -p "%q%" -t 0 -M 140 --stream`) do set LINECOUNT=%%A
 
-set LINECOUNT=%LINECOUNT:~1,-1%
+set LINECOUNT=%LINECOUNT%
 
 echo %LINECOUNT%
-
-REM curl -s -X POST https://api.a3rt.recruit.co.jp/talk/v1/smalltalk -F "apikey=###your api key in this site https://a3rt.recruit.co.jp/product/talkAPI/ ###" -F "query=%q%" | jq -c .results[].reply
 
 python jtalk.py %LINECOUNT%
 
@@ -27,7 +26,7 @@ GOTO :START
 
 :START1
 
-python AI_TALK_TWITTER.py %q% %LINECOUNT%
+python OPEN_AI_TALK_TWITTER.py %q% %LINECOUNT%
 
 GOTO :EOF
 

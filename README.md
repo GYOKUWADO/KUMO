@@ -63,6 +63,7 @@ twitterにかんするスクリプト。
 
 AI_TALK.bat
 AI.pyの代替え
+/tオプションでOPEN_AI_TALK_TWITTER.pyを呼びだします。
 
 AI_TALK_TWITTER_REPLAY.py
 AI_REPLAY_ID_IN_TWIEET.pyの代替え。A3atのapikeyとtwitterのkeyを発行して組み込んで下さい。
@@ -73,3 +74,7 @@ python FAVO_TWEET.pyでHELPの呼び出し。
 Md5Sign.js
 usege is node Md5Sign.js [FileName] [Seed]
 Line 33 and 34 rewriting Your Infomation
+
+OPEN_AI_TALK_TWITTER.py
+Line 8 to 11 and 28 rewriting Your Infomation
+autorun.bat Line 7 in the your key rewriting
