@@ -28,6 +28,8 @@ del BLOCK_CHAIN_LIST_TMP.txt
 del BLOCK_CHAIN_LIST.txt
 del BLOCK_CHAIN_HASH.txt
 
+REM please Set GPG program
+
 set /p YorN="DO THE GPG SIGN?(y/n):"
 
 IF %YorN%==y gpg --clear-sign BLOCK_CHAIN.txt
