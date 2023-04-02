@@ -78,6 +78,8 @@ Line 33 and 34 and 35 rewriting Your Infomation
 OPEN_AI_TALK_TWITTER.py
 Line 8 to 11 and 28 rewriting Your Infomation
 autorun.bat Line 7 in the your key rewriting
+autorun.batのOPENAI_API_KEY変数をセットして
+AI_TALK.batを/tオプションで呼び出しChatGPTからの応答を得てください。
 
 BlockChain.bat
 usage is BlockChain.bat [FolderName]
