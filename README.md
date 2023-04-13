@@ -3,6 +3,8 @@
 
 まず最初にcmd.exe.lnk(cmdのショートカット)を実行して下さい。
 
+簡単な説明はこちら https://kumo.site/public_html/index.html
+
 0x16.bat
 このプログラムはCPUの16bitモードの時の
 セグメントのアドレスを調べます。
