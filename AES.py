@@ -1,10 +1,16 @@
-﻿#pip install pycryptodome
+﻿#!C:\Users\kenzi\AppData\Local\Programs\Python\Python39\python.exe
+#pip install pycryptodome
 #
 from Crypto.Cipher import AES
 import sys
+import datetime
+from getpass import getpass
+
+#dt_now = datetime.datetime.now()
+#dt_now_date = dt_now.strftime('%Y-%m-%d_%H-%M-%S-')
 
 if(len(sys.argv) <= 1):
-  print("AES.py [/e] 暗号化モード\nAES.py [/d] 復号化モード")
+  print("AES.py [/e] 暗号化モード XXXmessage.txtに書き出します。\nAES.py [/d] 復号化モード")
   sys.exit()
 
 # Encryption
@@ -12,9 +18,9 @@ if(len(sys.argv) <= 1):
 def encryption_AES():
 
  if sys.argv[1] == "/e":
-  key = str(input("鍵を16byteで入力してください。:"))
+  key = str(getpass("鍵を16byteで入力してください。:"))
   key = key.encode('utf-8')
-  print("key=" + str(key))
+  #print("key=" + str(key))
   text = str(input("AESのCBCモードで暗号化する文字列を入力してください。:"))
   byteLimit = len(text.encode())
   print('bytecount=' + str(byteLimit))
@@ -89,9 +95,15 @@ def encryption_AES():
   text = text.encode('utf-8')
   #print(text)
 
-  encryption_suite = AES.new(key, AES.MODE_CBC, b'this_is_change_space')
+  encryption_suite = AES.new(key, AES.MODE_CBC, b'OnTheKumoProject')
   cipher_text = encryption_suite.encrypt(text)
   print("cipher_text=" + str(cipher_text))
+  
+  with open('XXXmessage.txt', 'w') as f:
+   print(str(cipher_text), file=f)
+  
+  #print(dt_now)
+
   sys.exit()
 
 # Decryption
@@ -100,9 +112,9 @@ def decryption_AES():
 
  if sys.argv[1] == "/d":
 
-  key = (input("鍵を16byteで入力してください。:"))
+  key = (getpass("鍵を16byteで入力してください。:"))
   key = key.encode('utf-8')
-  print("key=" + str(key))
+  #print("key=" + str(key))
 
   cipher_text = bytes(input("復号する文字列を入力してください。:"),'utf-8')
   cipher_text = eval(cipher_text)
