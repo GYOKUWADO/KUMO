@@ -77,7 +77,10 @@ python FAVO_TWEET.pyでHELPの呼び出し。
 
 Md5Sign.js
 usege is node Md5Sign.js [FileName] [Seed]
-Line 33 and 34 and 35 rewriting Your Infomation
+Line 33 and 34 and 35 and 36 rewriting Your Infomation
+[FileName]だけをオプションで指定した時は'MD5SimpleBlockchainHash'詰まりハッシュ値が出力されます。
+[FileName] [Seed]の二つのオプションを指定した時は'MD5SimpleBlockchainSignature'の値、詰まり簡易署名が
+出力されますが証明できるのはSeed値を知る者のみです。
 
 OPEN_AI_TALK_TWITTER.py
 Line 8 to 11 and 28 rewriting Your Infomation
