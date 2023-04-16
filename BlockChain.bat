@@ -35,9 +35,6 @@ set /p YorN="DO THE GPG SIGN?(y/n):"
 IF %YorN%==y gpg --clear-sign BLOCK_CHAIN.txt
 IF %YorN%==Y gpg --clear-sign BLOCK_CHAIN.txt
 
-IF %YorN%==y certutil -encode BLOCK_CHAIN.txt.asc BLOCK_CHAIN.txt.asc.jpg
-IF %YorN%==Y certutil -encode BLOCK_CHAIN.txt.asc BLOCK_CHAIN.txt.asc.jpg
-
 chcp 932
 
 set SEED=
