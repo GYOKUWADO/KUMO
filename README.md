@@ -93,3 +93,4 @@ usage is BlockChain.bat [FolderName]
 this program is use Block Chain Technology.
 use Md5Sign.js Wrapper
 example cmdline BlockChain.bat ..\WWW\music
+output BLOCK_CHAIN.txt
