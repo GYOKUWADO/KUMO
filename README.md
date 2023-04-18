@@ -67,7 +67,7 @@ twitterにかんするスクリプト。
 
 AI_TALK.bat
 AI.pyの代替え
-/tオプションでOPEN_AI_TALK_TWITTER.pyを呼びだします。
+/tオプションでOPEN_AI_TALK_TWITTER.pyを呼び出しChatGPT3からの応答を得てツイートにリプライさせます。
 
 AI_TALK_TWITTER_REPLAY.py
 AI_REPLAY_ID_IN_TWIEET.pyの代替え。A3atのapikeyとtwitterのkeyを発行して組み込んで下さい。
@@ -86,7 +86,7 @@ OPEN_AI_TALK_TWITTER.py
 Line 8 to 11 and 28 rewriting Your Infomation
 autorun.bat Line 7 in the your key rewriting
 autorun.batのOPENAI_API_KEY変数をセットして
-AI_TALK.batを/tオプションで呼び出しChatGPTからの応答を得てください。
+AI_TALK.batを/tオプションで呼び出しChatGPTからの応答を得てツイートにリプライさせてください。
 
 BlockChain.bat
 usage is BlockChain.bat [FolderName]
