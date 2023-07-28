@@ -1,5 +1,5 @@
 //usege is node Md5Sign.js [FileName] [Seed]
-//Line 33 and 34 and 35 and36 rewriting Your Infomation
+//Line 33 and 34 and 35 rewriting Your Infomation
 
 require('date-utils');
 let now = new Date();
@@ -30,10 +30,10 @@ function md5hex(str /*: string */) {
 
 function MD5SimpleBlockchainSign() {
   md5baseVal = md5file(FileName);
-  TheBaseName = '玉和道'                                  //Your Name in The This
-  TheBaseMailAddress = 'example@kumo.jp'; //Your mail address in The This
+  TheBaseName = '玉和道'
+  TheBaseMailAddress = 'kenzihashimoto@ares.eonet.ne.jp'; //Your mail address in The This
   TheBaseDomain = 'kumo.site';                            //Your Domain in The This
-  TheBasePhone = '0743-64-3170'                           //Your Phone in The This
+  TheBasePhone = '0743-64-3170'
 
   console.log('Date:                          ' + now.toFormat('YYYY/MM/DD HH:MI:SS'));
   console.log('FileName:                      ' + FileName);
