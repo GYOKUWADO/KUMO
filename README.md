@@ -94,3 +94,9 @@ this program is use Block Chain Technology.
 use Md5Sign.js Wrapper
 example cmdline BlockChain.bat ..\WWW\music
 output BLOCK_CHAIN.txt
+
+T_trends.py
+Line 5 to 8 rewriting Your Infomation
+トップ10のトレンドワードを取得してツイートします。
+ブラウザで意味を調べる事もできます。
+先にpandasとtweepyのモジュールをpipでインストールして下さい。
