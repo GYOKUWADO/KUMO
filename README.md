@@ -100,3 +100,18 @@ Line 5 to 8 rewriting Your Infomation
 トップ10のトレンドワードを取得してツイートします。
 ブラウザで意味を調べる事もできます。
 先にpandasとtweepyのモジュールをpipでインストールして下さい。
+
+X_ai.py
+autorun.batのGOOGLE_APPLICATION_CREDENTIALSの変数をセットしてください。
+https://cloud.google.com/docs/authentication/production?hl=jaを参考にgoogle cloudのサービスアカウントを作成してください。
+2024年1月12日現在では無料のトライアルが使用できます。
+Vertex AI APIを有効にしてください。
+
+X_ai.pyの
+consumer_key =""
+consumer_secret =""
+access_token=""
+access_token_secret =""
+ 
+api = tweepy.Client(bearer_token="")
+を設定して実行してください。
