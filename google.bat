@@ -57,6 +57,15 @@ GOTO :EOF
 start http://kumo.site
 GOTO :EOF
 
+:START5
+set line=%*
+set line=%line:~3%
+set search_keys=%line: =+%
+
+rem Google検索！
+start https://www.google.co.jp/search?q=%search_keys%+site:www.webmodelers.com
+GOTO :EOF
+
 rem 参考URL
 rem ウィンドウ最小化状態でバッチを実行する
 rem https://blog.cles.jp/item/8980
