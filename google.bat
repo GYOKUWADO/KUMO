@@ -6,6 +6,7 @@ IF "%1"=="/i" GOTO START1
 IF "%1"=="/f" GOTO START2
 IF "%1"=="/s" GOTO START3
 IF "%1"=="/o" GOTO START4
+IF "%1"=="/w" GOTO START5
 IF NOT "%1"=="" GOTO START0
 EXIT /B
 
@@ -20,6 +21,8 @@ echo サイトマップを送信するには /s オプションをつけてください。
 echo 例 google /s
 echo ON THE KUMO PROJECTにブラウザでアクセスするには /o オプションをつけてください。
 echo 例 google /o
+echo [www.webmodelers.com]内の検索
+echo 例 google /w 零戦
 GOTO :EOF
 
 :START0
