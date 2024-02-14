@@ -1,6 +1,6 @@
 # KUMO
 
-https://github.com/GYOKUWADO/KUMO/assets/62803262/5abfe6ea-f535-4a4e-aea8-43715f523d35
+![IMG_5483](https://github.com/GYOKUWADO/KUMO/assets/62803262/00fc6879-8c83-4cc1-88a0-2b04434c5379)
 
 今まで作成したフロントエンドのスクリプト等をGITでの環境に移行して改良を続けていきます。
 
