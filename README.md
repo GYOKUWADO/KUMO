@@ -1,4 +1,7 @@
 # KUMO
+
+https://github.com/GYOKUWADO/KUMO/assets/62803262/5abfe6ea-f535-4a4e-aea8-43715f523d35
+
 今まで作成したフロントエンドのスクリプト等をGITでの環境に移行して改良を続けていきます。
 
 まず最初にcmd.exe.lnk(cmdのショートカット)を実行して下さい。
