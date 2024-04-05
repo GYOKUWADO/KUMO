@@ -118,3 +118,6 @@ access_token_secret =""
  
 api = tweepy.Client(bearer_token="")
 を設定して実行してください。
+
+HRN.py
+ビジネスのヘッドラインニュースを20件、取得します。NEWS API KEYをセットして下さい。
