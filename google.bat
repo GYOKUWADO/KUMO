@@ -7,6 +7,7 @@ IF "%1"=="/f" GOTO START2
 IF "%1"=="/s" GOTO START3
 IF "%1"=="/o" GOTO START4
 IF "%1"=="/w" GOTO START5
+IF "%1"=="/b" GOTO START6
 IF NOT "%1"=="" GOTO START0
 EXIT /B
 
@@ -23,6 +24,9 @@ echo ON THE KUMO PROJECTにブラウザでアクセスするには /o オプションをつけてくださ
 echo 例 google /o
 echo [www.webmodelers.com]内の検索
 echo 例 google /w 零戦
+echo ブランドの最新情報 [一週間以内/24時間以内] /b オプション [BrandList.txtにターゲットにするブランドのURLを記述して下さい。]
+echo 例 google /b [アクセサリー]
+echo 例 google /b
 GOTO :EOF
 
 :START0
@@ -65,8 +69,28 @@ set line=%*
 set line=%line:~3%
 set search_keys=%line: =+%
 
+:START6
+set line=%*
+set line=%line:~3%
+set search_keys=%line: =+%
+
+IF %search_keys%== =+ CALL :NULL
+
+set /p WorD="一週間以内(W)か24時間以内(D)を指定してください(W/D)"
+IF %WorD%==W set tbs=^&tbs=qdr:w
+IF %WorD%==D set tbs=^&tbs=qdr:d
+
+IF defined search_keys FOR /F "skip=1" %%i in (BrandList.txt) do start https://www.google.co.jp/search?q=%search_keys%+site:%%i^%tbs%^&tbm=isch
+IF not defined search_keys FOR /F "skip=1" %%i in (BrandList.txt) do start https://www.google.co.jp/search?q=site:%%i^%tbs%^&tbm=isch
+GOTO :NULL
+
 rem Google検索！
 start https://www.google.co.jp/search?q=%search_keys%+site:www.webmodelers.com
+GOTO :EOF
+
+:NULL
+set line=
+set search_keys=
 GOTO :EOF
 
 rem 参考URL
