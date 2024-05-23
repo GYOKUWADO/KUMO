@@ -121,3 +121,6 @@ api = tweepy.Client(bearer_token="")
 
 HRN.py
 ビジネスのヘッドラインニュースを20件、取得します。NEWS API KEYをセットして下さい。
+
+G.py
+デフォルトでは一日前からのガンダムの情報を取得しますが検索ワードは自由に変更できます。NEWS API KEYをセットして下さい。
