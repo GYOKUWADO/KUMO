@@ -124,3 +124,8 @@ HRN.py
 
 G.py
 デフォルトでは一日前からのガンダムの情報を取得しますが検索ワードは自由に変更できます。NEWS API KEYをセットして下さい。
+
+movie.py
+映画の公開されている情報を取得する。
+[APIリードアクセストークン]と[APIキー]を[https://www.themoviedb.org/]から取得して設定して下さい。
+使い方 python movie.py > movie.html
