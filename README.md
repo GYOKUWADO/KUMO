@@ -127,5 +127,5 @@ G.py
 
 movie.py
 映画の公開されている情報を取得する。
-[APIリードアクセストークン]と[APIキー]を[https://www.themoviedb.org/]から取得して設定して下さい。
+[APIリードアクセストークン]と[APIキー]を https://www.themoviedb.org/ から取得して設定して下さい。
 使い方 python movie.py > movie.html
