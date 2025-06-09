@@ -2,6 +2,7 @@ import vlc
 import webbrowser
 import requests
 import json
+import sys
 
 #zip file code
 import os
@@ -12,6 +13,9 @@ import zipfile
 
 #sha256
 import hashlib
+
+import pygame
+import time
 
 # 音楽ファイルのURL
 base_url = "https://kumo.site/sp/hiphop"
@@ -43,7 +47,7 @@ def play_sound():
     # Parse JSON data
     data = response.json()
     #print(data)
-    print("0 ***zipfileでまとめてダウンロード***")
+    #print("0 ***zipfileでまとめてダウンロード***")
     for d in data:
         res_a = d['id']
         res_b = d['music']
@@ -76,7 +80,11 @@ def play_sound():
            input("Press Enter to stop playback...")
            player.stop()
 
-    if id == "0":
+ else:
+    print(f"Failed to fetch data. Status code: {response.status_code}")
+
+def zip_DL():
+    #if id == "0":
           print("OK")
 
           # 保存先ディレクトリ作成
@@ -127,8 +135,44 @@ def play_sound():
           except urllib.error.URLError as e:
             print(e)
 
- else:
-    print(f"Failed to fetch data. Status code: {response.status_code}")
+def play_hiphop_music_all():
+
+   play_music_all = []
+
+   # JSONファイルを開く
+   with open(data_dir_path + 'hiphop.json', 'r', encoding='utf-8') as file:
+       # JSONファイルをPythonオブジェクトに変換
+       data = json.load(file)
+
+   for index, item in enumerate(data):
+       play_music_all.append(item["music"])
+
+   #print(play_music_all)
+
+   # pygameの初期化
+   pygame.mixer.init()
+
+   # 音楽を順番に再生
+   for music in play_music_all:
+       print(f"再生中: {music}")
+       pygame.mixer.music.load(data_dir_path + music)  # 音楽ファイルをロード
+       pygame.mixer.music.play()      # 再生開始
+
+       # 再生が終了するまで待機
+       while pygame.mixer.music.get_busy():
+           time.sleep(1)
+
+   print("すべての曲が再生されました！")
+
 
 if __name__ == "__main__":
-    play_sound()
+ if len(sys.argv) <= 1:
+  print("-p     play sound online from [kumo.site]")
+  print("-z     zipfileでまとめてダウンロード。")
+  print("-l     ローカルで全て再生。")
+ elif sys.argv[1] == "-p":
+   play_sound()
+ elif sys.argv[1] == "-z":
+   zip_DL()
+ elif sys.argv[1] == "-l":
+   play_hiphop_music_all()
