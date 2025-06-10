@@ -17,6 +17,9 @@ import hashlib
 import pygame
 import time
 
+import keyboard
+import msvcrt
+
 # 音楽ファイルのURL
 base_url = "https://kumo.site/sp/hiphop"
 
@@ -47,7 +50,7 @@ def play_sound():
     # Parse JSON data
     data = response.json()
     #print(data)
-    #print("0 ***zipfileでまとめてダウンロード***")
+
     for d in data:
         res_a = d['id']
         res_b = d['music']
@@ -85,7 +88,7 @@ def play_sound():
 
 def zip_DL():
     #if id == "0":
-          print("OK")
+          print("Welcome to SOUL OF MUSIC YAMATO.")
 
           # 保存先ディレクトリ作成
           if os.path.exists(data_dir_path):
@@ -105,22 +108,11 @@ def zip_DL():
                     hash_value = calculate_sha256(save_path)
                     print(f"SHA-256: {hash_value}")
 
-                # shutilを使用して解凍
-                #shutil.unpack_archive(save_path, data_dir_path, 'zip')
-                #print("HIPHOP_MUSICをダウンロードして解凍しました。")
-
-                # ディレクトリ内のファイル名を取得してエンコード
-                #for filename in os.listdir(data_dir_path):
-                #  encoded_filename = filename.encode('utf-8')  # UTF-8にエンコード
-                #  print(f"Original: {filename}, Encoded: {encoded_filename}")
-
                 x = input('zipファイルを解凍しますか？(y/n) : ')
 
                 if x == 'y' :
 
                  with zipfile.ZipFile(data_dir_path + "download.zip") as obj_zip:
-                    # 指定ディレクトリにすべてを保存する
-                    #obj_zip.extractall(data_dir_path)
 
                     # エンコーディングを指定してファイルを解凍
                     for file_info in obj_zip.infolist():
@@ -147,20 +139,52 @@ def play_hiphop_music_all():
    for index, item in enumerate(data):
        play_music_all.append(item["music"])
 
-   #print(play_music_all)
-
    # pygameの初期化
    pygame.mixer.init()
+   pygame.init()
+
+   MUSIC_END = pygame.USEREVENT + 1
+
+   pygame.mixer.music.set_endevent(MUSIC_END)
+
+   pygame.display.set_caption("Pause/Unpause with Key Input")
+
+   i = 0
 
    # 音楽を順番に再生
    for music in play_music_all:
-       print(f"再生中: {music}")
+       i += 1  # i = i + 1 と同じ意味
+       #if not isinstance(i, str):
+       #   i = str(i)
+       print(str(i) + f" 再生中: {music}")
        pygame.mixer.music.load(data_dir_path + music)  # 音楽ファイルをロード
        pygame.mixer.music.play()      # 再生開始
 
+       running = True
+       paused = False  # 一時停止状態を管理するフラグ
+
+       #print("test")
+
+       while running:
+        if keyboard.is_pressed('escape'):
+               if paused:
+                   pygame.mixer.music.unpause()  # 再開
+                   paused = False
+
+               else:
+                   pygame.mixer.music.pause()  # 一時停止
+                   paused = True
+
+        time.sleep(2)
+        for event in pygame.event.get():
+            if event.type == MUSIC_END:
+                #print("音楽の再生が終了しました")
+                running = False
+                break
+
        # 再生が終了するまで待機
-       while pygame.mixer.music.get_busy():
-           time.sleep(1)
+       #while pygame.mixer.music.get_busy():
+           #time.sleep(1)
 
    print("すべての曲が再生されました！")
 
@@ -168,11 +192,12 @@ def play_hiphop_music_all():
 if __name__ == "__main__":
  if len(sys.argv) <= 1:
   print("-p     play sound online from [kumo.site]")
-  print("-z     zipfileでまとめてダウンロード。")
+  print("-z     zipfileでまとめてローカルにダウンロード。")
   print("-l     ローカルで全て再生。")
  elif sys.argv[1] == "-p":
    play_sound()
  elif sys.argv[1] == "-z":
    zip_DL()
  elif sys.argv[1] == "-l":
+   print('一時停止/再開[Esc(Press 2second)]')
    play_hiphop_music_all()
