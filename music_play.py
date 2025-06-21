@@ -187,7 +187,7 @@ def play_hiphop_music_all():
        #while pygame.mixer.music.get_busy():
            #time.sleep(1)
 
-   print("すべての曲が再生されました！")
+   print("すべての曲が再生されました。")
 
 
 if __name__ == "__main__":
