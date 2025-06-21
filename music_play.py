@@ -27,6 +27,7 @@ base_url = "https://kumo.site/sp/hiphop"
 data_dir_path = "./HIPHOP_MUSIC/"
 file_url = "https://kumo.site/zip/HIPHOP_MUSIC.zip"
 save_path = "./HIPHOP_MUSIC/download.zip"
+hiphop_json = "./HIPHOP_MUSIC/hiphop.json"
 
 def calculate_sha256(file_path):
     sha256_hash = hashlib.sha256()
@@ -194,6 +195,7 @@ if __name__ == "__main__":
   print("-p     play sound online from [kumo.site]")
   print("-z     zipfileでまとめてローカルにダウンロード。")
   print("-l     ローカルで全て再生。")
+  print("-j     ローカルのhiphop.jsonを表示")
  elif sys.argv[1] == "-p":
    play_sound()
  elif sys.argv[1] == "-z":
@@ -201,3 +203,8 @@ if __name__ == "__main__":
  elif sys.argv[1] == "-l":
    print('一時停止/再開[Esc(Press 2second)]')
    play_hiphop_music_all()
+ elif sys.argv[1] == "-j":
+   with open(data_dir_path + 'hiphop.json', 'r', encoding='utf-8') as file:
+    d = json.load(file)
+    #s_from_b = d.encode().decode('unicode-escape')
+    print(json.dumps(d, indent=4,ensure_ascii=False))
