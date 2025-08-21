@@ -192,10 +192,10 @@ def play_hiphop_music_all():
 
 if __name__ == "__main__":
  if len(sys.argv) <= 1:
-  print("-p     play sound online from [kumo.site]")
+  #print("-p     play sound online from [kumo.site]")
   print("-z     zipfileでまとめてローカルにダウンロード。")
-  print("-l     ローカルで全て再生。")
-  print("-j     ローカルのhiphop.jsonを表示")
+  #print("-l     ローカルで全て再生。")
+  #print("-j     ローカルのhiphop.jsonを表示")
  elif sys.argv[1] == "-p":
    play_sound()
  elif sys.argv[1] == "-z":
