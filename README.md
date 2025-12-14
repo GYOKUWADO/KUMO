@@ -133,3 +133,7 @@ movie.py
 rate.bat
 ビットコインの価格、イーサリアムの価格、日経平均株価、為替レートを表示します。
 bitcoin.py と ethereum.py と Exchange_rate.py と Nikkei_stock_average.py を実行します。
+
+my-extension/
+ブラウザの拡張機能(プラグイン)
+正規金融機関以外のドメインにアクセスした場合警告を出します。
