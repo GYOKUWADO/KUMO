@@ -137,3 +137,16 @@ bitcoin.py と ethereum.py と Exchange_rate.py と Nikkei_stock_average.py を�
 my-extension/
 ブラウザの拡張機能(プラグイン)
 正規金融機関以外のドメインにアクセスした場合警告を出します。
+
+Mmail.bat
+eomailの迷惑メールBOXのメールをダウンロードして圧縮し、デ恊に送ります。
+
+MmailKAI.pyの
+USER = ""
+PASS = ""
+を設定してください。
+
+eo_smtp.pyの
+sender_email="",
+password="",
+を設定してください。
